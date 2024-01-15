@@ -1,0 +1,10 @@
+#
+spring:
+  data:
+    mongodb:
+      host: mymongo:27017
+      database: bursu_db
+
+mongock:
+  migration-scan-package:
+    - com.bursu.springmongo.changelogs

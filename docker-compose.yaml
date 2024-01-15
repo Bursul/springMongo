@@ -1,0 +1,13 @@
+version: '3'
+services:
+  springmono:
+    image: springmongo
+    build: .
+    ports:
+      - "8080:8080"
+
+  mymongo:
+    image: mongo
+    hostname: mymongo
+    ports:
+      - "27017:27017"

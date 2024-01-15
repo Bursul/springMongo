@@ -1,0 +1,30 @@
+POST http://localhost:8080/addCustomer
+Content-Type: application/json
+
+{
+    "id":123,
+    "firstName": "Netflix",
+    "lastName": "activa2te"
+}
+
+###
+
+POST http://localhost:8080/updateCustomer
+Content-Type: application/json
+
+{
+  "id":123,
+  "firstName": "Netflix",
+  "lastName": "activa2te_updated"
+}
+
+###
+
+POST http://localhost:8080/addOwner
+Content-Type: application/json
+
+{
+  "id":123,
+  "firstName": "Owner",
+  "lastName": "one"
+}
