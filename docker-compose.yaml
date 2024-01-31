@@ -1,4 +1,6 @@
 version: '3'
+
+
 services:
   springmono:
     image: springmongo
@@ -11,3 +13,25 @@ services:
     hostname: mymongo
     ports:
       - "27017:27017"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  rabbitreceiver:
+    image: rabbit-receiver
+    build: rabbit-receiver
+    ports:
+      - "8088:8088"
+    depends_on:
+      - rabbitsender
+
+  rabbitsender:
+    image: rabbitsender
+    build: rabbitSender
+    ports:
+      - "8087:8087"
+    depends_on:
+      - rabbitmq
