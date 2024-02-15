@@ -18,21 +18,19 @@ public class CustomerInitializerChangeUnit {
 
     public final static int INITIAL_CLIENTS = 10;
     public final static String CUSTOMER_COLLECTION_NAME = "customerCollection";
+
     @BeforeExecution
     public void beforeExecution(MongoTemplate mongoTemplate) {
-
         mongoTemplate.createCollection(CUSTOMER_COLLECTION_NAME);
     }
 
     @RollbackBeforeExecution
     public void rollbackBeforeExecution(MongoTemplate mongoTemplate) {
-
         mongoTemplate.dropCollection(CUSTOMER_COLLECTION_NAME);
     }
 
     @Execution
     public void execution(CustomerRepository customerRepository) {
-
         customerRepository.saveAll(
                 IntStream.range(0, INITIAL_CLIENTS)
                         .mapToObj(CustomerInitializerChangeUnit::getCustomer)
@@ -42,7 +40,6 @@ public class CustomerInitializerChangeUnit {
 
     @RollbackExecution
     public void rollbackExecution(CustomerRepository customerRepository) {
-
         customerRepository.deleteAll();
     }
 

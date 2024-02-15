@@ -1,17 +1,14 @@
 package com.bursu.springmongo;
 
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerService {
 
     private final CustomerRepository repository;
-    private final MongoTemplate template;
 
-    public CustomerService(CustomerRepository repository, MongoTemplate template) {
+    public CustomerService(CustomerRepository repository) {
         this.repository = repository;
-        this.template = template;
     }
 
     public Customer updateCustomer(Customer customer) {
